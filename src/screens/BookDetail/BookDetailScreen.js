@@ -44,10 +44,12 @@ const BookDetailScreen = ({ route, navigation }) => {
                     totalPages={totalPages}
                 />
                 <NoteSection note={note} setNote={setNote} />
-                <BookActions
-                    handleDeleteBook={() => handleDeleteBook(book, navigation)}
-                    handleCompleteBook={() => handleCompleteBook(book, navigation)}
-                />
+                {!keyboardVisible && (
+                    <BookActions
+                        handleDeleteBook={() => handleDeleteBook(book, navigation)}
+                        handleCompleteBook={() => handleCompleteBook(book, navigation)}
+                    />
+                )}
             </View>
         </TouchableWithoutFeedback>
     );
