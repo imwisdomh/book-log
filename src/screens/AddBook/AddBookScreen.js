@@ -67,7 +67,7 @@ const AddBookScreen = () => {
     return (
         <View style={styles.container}>
             <TextInput
-                style={styles.input}
+                style={styles.bookSearch}
                 placeholder="제목, 작가 명으로 검색"
                 placeholderTextColor="#999"
                 value={searchQuery}

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         alignItems: "center",
     },
-    coverImage: {
+    bookImage: {
         width: width * 0.35,
         height: height * 0.25,
         resizeMode: "contain",

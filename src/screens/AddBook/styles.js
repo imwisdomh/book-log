@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#fff",
         padding: 16,
     },
-    input: {
+    bookSearch: {
         height: 50,
         borderColor: "#ccc",
         borderWidth: 1,

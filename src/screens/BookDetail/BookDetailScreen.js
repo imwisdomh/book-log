@@ -25,7 +25,7 @@ const BookDetailScreen = ({ route, navigation }) => {
                 <View style={keyboardVisible ? styles.bookInfoContainerSmall : styles.bookInfoContainer}>
                     <Image
                         source={{ uri: book.thumbnail }}
-                        style={keyboardVisible ? styles.bookImageSmall : styles.coverImage}
+                        style={keyboardVisible ? styles.bookImageSmall : styles.bookImage}
                     />
                     <View style={styles.bookTextContainer}>
                         <Text style={styles.title}>{book.title}</Text>
