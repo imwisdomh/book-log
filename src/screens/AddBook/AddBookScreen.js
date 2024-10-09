@@ -12,6 +12,7 @@ const AddBookScreen = () => {
     const navigation = useNavigation();
     const route = useRoute();
 
+    // 검색된 책 데이터를 가져오는 함수
     const searchBooks = async (query) => {
         try {
             const response = await fetch(`${GOOGLE_BOOKS_API}${query}`);
@@ -26,6 +27,7 @@ const AddBookScreen = () => {
         }
     };
 
+    // 사용자가 검색어를 입력할 때 호출되는 함수
     const handleSearch = (text) => {
         setSearchQuery(text);
         if (text.length > 2) {
@@ -35,6 +37,7 @@ const AddBookScreen = () => {
         }
     };
 
+    // 사용자가 책을 선택했을 때 호출되는 함수
     const handleBookSelect = (book) => {
         const { title, authors, imageLinks, pageCount } = book.volumeInfo;
         const newBook = {
@@ -45,11 +48,14 @@ const AddBookScreen = () => {
             pageCount,
         };
 
+        // 선택한 책이 이미 추가된 책인지 확인
         const existingBook = route.params?.existingBooks?.find((b) => b.id === newBook.id);
 
         if (existingBook) {
+            // 이미 추가된 책일 경우
             Alert.alert("이미 추가된 책입니다", `『${newBook.title}』은/는 이미 추가된 책입니다.`);
         } else {
+            // 선택한 책이 없을 경우 홈 화면으로 이동하며 새 책 정보 전달
             navigation.navigate("Home", { newBook, initialTab: "reading" });
         }
     };

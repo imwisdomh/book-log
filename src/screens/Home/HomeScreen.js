@@ -9,12 +9,14 @@ const HomeScreen = ({ navigation }) => {
     const route = useRoute();
     const { books, currentTab, setCurrentTab } = useBooks(route.params);
 
+    // 책을 랜더링하는 함수
     const renderBook = ({ item }) => (
         <BookItem item={item} onPress={() => navigation.navigate("BookDetail", { book: item })} />
     );
 
     return (
         <View style={styles.container}>
+            {/* 읽는 중/읽은 책 */}
             <View style={styles.tabContainer}>
                 {["reading", "completed"].map((tab) => (
                     <TouchableOpacity
@@ -28,12 +30,14 @@ const HomeScreen = ({ navigation }) => {
                     </TouchableOpacity>
                 ))}
             </View>
+            {/* 현재 선택된 탭에 따른 책 리스트 */}
             <FlatList
                 data={books.filter((book) => book.status === currentTab)}
                 renderItem={renderBook}
                 keyExtractor={(item) => item.id}
                 contentContainerStyle={styles.bookList}
             />
+            {/* 새 책 추가 */}
             <TouchableOpacity
                 style={styles.addButton}
                 onPress={() => navigation.navigate("AddBook", { existingBooks: books })}
