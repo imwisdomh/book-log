@@ -11,12 +11,13 @@ import {
     startDecrementing,
     stopChangingPage,
     handlePageChange,
+    handleTotalPagesChange,
 } from "@screens/BookDetail/utils/pageChangeHandlers";
 import styles from "@screens/BookDetail/styles";
 
 const BookDetailScreen = ({ route, navigation }) => {
     const { book } = route.params;
-    const { currentPage, setCurrentPage, note, setNote, progress, totalPages, intervalRef } = useBookData(book);
+    const { currentPage, setCurrentPage, totalPages, setTotalPages, note, setNote, progress, intervalRef } = useBookData(book);
     const keyboardVisible = useKeyboardStatus();
 
     return (
@@ -42,6 +43,7 @@ const BookDetailScreen = ({ route, navigation }) => {
                     currentPage={currentPage}
                     handlePageChange={(input) => handlePageChange(input, totalPages, setCurrentPage)}
                     totalPages={totalPages}
+                    handleTotalPagesChange={(input) => handleTotalPagesChange(input, setTotalPages)}
                 />
                 <NoteSection note={note} setNote={setNote} />
                 {!keyboardVisible && (

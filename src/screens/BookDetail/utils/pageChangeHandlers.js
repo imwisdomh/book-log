@@ -30,4 +30,13 @@ const handlePageChange = (input, totalPages, setCurrentPage) => {
     }
 };
 
-export { startIncrementing, startDecrementing, stopChangingPage, handlePageChange };
+const handleTotalPagesChange = (input, setTotalPages) => {
+    const pageNumber = parseInt(input);
+    if (!isNaN(pageNumber) && pageNumber >= 0) {
+        setTotalPages(pageNumber);
+    } else if (input === "") {
+        setTotalPages("0");
+    }
+};
+
+export { startIncrementing, startDecrementing, stopChangingPage, handlePageChange, handleTotalPagesChange };
