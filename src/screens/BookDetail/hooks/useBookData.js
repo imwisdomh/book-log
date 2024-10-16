@@ -5,7 +5,7 @@ const useBookData = (book) => {
     const [currentPage, setCurrentPage] = useState("0");
     const [note, setNote] = useState("");
     const [totalPages, setTotalPages] = useState(book.pageCount || 1);
-    const progress = Math.floor((parseInt(currentPage) / totalPages) * 100);
+    const progress = totalPages > 0 ? Math.min(Math.floor((parseInt(currentPage) / totalPages) * 100), 100) : 0;
     const intervalRef = useRef(null);
 
     useEffect(() => {
