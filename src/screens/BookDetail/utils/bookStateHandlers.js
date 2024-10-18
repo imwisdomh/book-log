@@ -20,7 +20,8 @@ const handleDeleteBook = async (book, navigation) => {
                             const booksArray = JSON.parse(savedBooks);
                             const updatedBooks = booksArray.filter((item) => item.id !== book.id);
                             await AsyncStorage.setItem("books", JSON.stringify(updatedBooks));
-                            await AsyncStorage.removeItem(`book_${book.id}_page`);
+                            await AsyncStorage.removeItem(`book_${book.id}_currentPage`);
+                            await AsyncStorage.removeItem(`book_${book.id}_totalPages`);
                             await AsyncStorage.removeItem(`book_${book.id}_note`);
                             navigation.navigate("Home", { deletedBookId: book.id });
                         }
