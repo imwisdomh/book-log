@@ -18,10 +18,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.imwisdomh.booklog"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "e2cf0ad9-0458-445f-aac7-86d3f7106620"
+      }
+    },
+    "owner": "imwisdomh"
   }
 }
