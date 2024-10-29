@@ -30,7 +30,7 @@ const AddBookScreen = () => {
     // 사용자가 검색어를 입력할 때 호출되는 함수
     const handleSearch = (text) => {
         setSearchQuery(text);
-        if (text.length > 2) {
+        if (text.length > 1) {
             searchBooks(text);
         } else {
             setBooks([]);
